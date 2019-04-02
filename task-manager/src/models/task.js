@@ -17,8 +17,15 @@ const taskSchema = new mongoose.Schema({
   isDone: {
     type: Boolean,
     required: true
+  },
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'User'
   }
-});
+}, {
+    timestamps: true
+  });
 
 // taskSchema.pos("save", function(next) {
 //   const task = this;
